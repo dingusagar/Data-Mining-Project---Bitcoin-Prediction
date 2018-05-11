@@ -333,15 +333,21 @@ dataset}\label{preprocessing-the-dataset}
 
 \begin{Verbatim}[commandchars=\\\{\}]
 {\color{outcolor}Out[{\color{outcolor}2}]:}         Date     Open     High      Low    Close      Volume    Market Cap
-        0 2018-04-04  7456.41  7469.88  6803.88  6853.84  4936000000  126434000000
-        1 2018-04-03  7102.26  7530.94  7072.49  7456.11  5499700000  120415000000
-        2 2018-04-02  6844.86  7135.47  6816.58  7083.80  4333440000  116037000000
-        3 2018-04-01  7003.06  7060.95  6526.87  6844.23  4532100000  118705000000
-        4 2018-03-31  6892.48  7207.85  6863.52  6973.53  4553270000  116820000000
+        0 2018-05-10  9325.96  9396.04  9040.52  9043.94  6906700000  158772000000
+        1 2018-05-09  9223.73  9374.76  9031.62  9325.18  7226890000  157013000000
+        2 2018-05-08  9380.87  9462.75  9127.77  9234.82  7415870000  159672000000
+        3 2018-05-07  9645.67  9665.85  9231.53  9373.01  7394020000  164161000000
+        4 2018-05-06  9845.31  9940.14  9465.25  9654.80  7222280000  167541000000
 \end{Verbatim}
             
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}3}]:} \PY{c+c1}{\PYZsh{} get market info for ethereum from the start of 2016 to the current day}
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{df} \PY{o}{=} \PY{n}{bitcoin\PYZus{}market\PYZus{}info}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{High}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Date}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+         \PY{n}{df}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{new\PYZus{}data\PYZus{}set.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{index}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{,}\PY{n}{header}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{} get market info for ethereum from the start of 2016 to the current day}
         \PY{n}{eth\PYZus{}market\PYZus{}info} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}html}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{https://coinmarketcap.com/currencies/ethereum/historical\PYZhy{}data/?start=20130428\PYZam{}end=}\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n}{time}\PY{o}{.}\PY{n}{strftime}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{Y}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{m}\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
         \PY{c+c1}{\PYZsh{} convert the date string to the correct date format}
         \PY{n}{eth\PYZus{}market\PYZus{}info} \PY{o}{=} \PY{n}{eth\PYZus{}market\PYZus{}info}\PY{o}{.}\PY{n}{assign}\PY{p}{(}\PY{n}{Date}\PY{o}{=}\PY{n}{pd}\PY{o}{.}\PY{n}{to\PYZus{}datetime}\PY{p}{(}\PY{n}{eth\PYZus{}market\PYZus{}info}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Date}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
@@ -351,12 +357,12 @@ dataset}\label{preprocessing-the-dataset}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}3}]:}         Date    Open    High     Low   Close      Volume   Market Cap
-        0 2018-04-04  416.49  417.47  375.31  380.54  1287730000  41065100000
-        1 2018-04-03  387.31  418.97  383.53  416.89  1363400000  38180800000
-        2 2018-04-02  379.70  395.17  377.59  386.43  1102260000  37422500000
-        3 2018-04-01  397.25  400.53  363.81  379.61  1256930000  39144700000
-        4 2018-03-31  395.00  418.47  392.95  396.46  1323920000  38914900000
+{\color{outcolor}Out[{\color{outcolor}8}]:}         Date    Open    High     Low   Close      Volume   Market Cap
+        0 2018-05-10  752.58  766.75  726.66  727.28  2748950000  74758700000
+        1 2018-05-09  752.90  759.53  718.47  752.27  2877870000  74775300000
+        2 2018-05-08  755.01  774.25  728.13  752.86  2920490000  74969200000
+        3 2018-05-07  793.34  795.76  710.18  753.73  4316120000  78758700000
+        4 2018-05-06  816.09  835.06  764.88  792.31  3105570000  81000200000
 \end{Verbatim}
             
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -383,7 +389,7 @@ dataset}\label{preprocessing-the-dataset}
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_9_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_10_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -466,7 +472,7 @@ data after it).
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_13_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_14_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -509,7 +515,7 @@ Distribution}\label{histogram-of-daily-price-changes-normal-distribution}
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_19_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -554,7 +560,7 @@ Distribution}\label{histogram-of-daily-price-changes-normal-distribution}
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_19_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -617,7 +623,7 @@ interval}\label{random-walk-over-full-interval}
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_22_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_23_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -956,7 +962,7 @@ this represents completely new data for the model.
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_42_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_43_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -981,7 +987,7 @@ this represents completely new data for the model.
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_43_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_44_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
